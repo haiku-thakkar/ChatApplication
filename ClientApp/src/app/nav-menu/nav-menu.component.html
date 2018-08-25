@@ -1,0 +1,51 @@
+<!--<div class='main-nav'>
+  <div class='navbar navbar-inverse' style="background-color: powderblue;">
+      <div class='navbar-header'>
+
+        <a class='navbar-brand' [routerLink]='["/home/",user.id]' style="width:75%">{{user.name}}'s SlackClone</a>
+        <button type="button" class="btn btn-warning btn-sm" style="float:right;margin-top:10px;margin-left:3px" (click)="logOut()">
+          <span class="glyphicon glyphicon-lock"></span> Log out
+
+        </button>
+      </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
+
+            <ul class='nav navbar-nav' *ngFor="let u of users">
+
+                <li [routerLinkActive]='["link-active"]'>
+                  <a [routerLink]='["/chat/",user.id,u.id]'>
+                    <span class='glyphicon glyphicon-certificate' *ngIf="u.status==false" style="color:red"></span>
+                    <span class='glyphicon glyphicon-certificate' *ngIf="u.status==true" style="color:green"></span>
+                    {{u.name}}
+                  </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>-->
+
+<div class='main-nav'>
+  <div class='navbar navbar-inverse' style="background-color: powderblue;">
+    <div class='navbar-header'>
+
+      <a class='navbar-brand'  [routerLink]='["/home/",user.id]' style="width:75%;color:black">{{user.name}}</a>
+    </div>
+    <div class='clearfix'></div>
+    <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
+      <ul class='nav navbar-nav' *ngFor="let u of users">
+        <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+          <a [routerLink]='["/chat/",user.id,u.id]'>
+            <span class='glyphicon glyphicon-certificate' *ngIf="u.status==false" style="color:red"></span>
+            <span class='glyphicon glyphicon-certificate' *ngIf="u.status==true" style="color:green"></span>
+            {{u.name}}
+          </a>
+        </li>
+
+      </ul>
+      <button type="button" class="btn btn-warning btn-sm" style="float:right;margin-top:10px;margin-left:3px" (click)="logOut()">
+        <span class="glyphicon glyphicon-lock"></span> Log out</button>
+    </div>
+  </div>
+</div>
